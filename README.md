@@ -9,7 +9,7 @@ En Python las variables son "etiquetas" que permiten hacer referencia a los dato
 le damos un nombre a una variable 
 
 '''python
-suma=s 
+suma=0
 '''
 
 
