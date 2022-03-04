@@ -188,3 +188,245 @@ for number in range(10):
 
 print('Out of loop')
 ```
+
+# Ejercicios 
+## for
+
+```python
+contador=0
+n=5
+numero=0
+suma =0
+
+for i in range (n):
+    numero=int (input ("ingrese numero reales....."))
+    
+    suma += numero
+    contador =contador + 1
+
+if contador == 0:
+    print("no digito ningun numero.")
+
+else :
+    promedi = suma / contador 
+
+    print("media retimetica es:",promedi)
+```
+
+```python
+n=5
+menor=100000
+suma =0
+
+for i in range (n):
+    nota=int (input ("ingrese nota:"))
+    
+    suma += nota
+    
+    if nota  < menor:
+       menor = nota
+    
+print("nota media es:",suma/n)
+print("nota mas baja es ",menor)
+```
+
+```python
+=int(input("ingree un numero:"))
+
+for i in range (1,13):
+    print(f"{i} x {n} = {i*n}")
+```
+
+## toma de desicion if elif
+```python
+num1=int(input("ingrese primer numero:"))
+num2=int(input("ingrese segundo numero:"))
+num3=int(input("ingrese tercer numero:"))
+
+if num1 > num2:
+    if num1 > num3:
+        print("El primer numero es mayor",num1)
+
+elif num2 > num1: 
+    if num2 > num3:
+        print("El segundo numero es mayor",num2)
+
+else:
+    print("El tercero numero es mayor",num3)
+```
+
+```python
+num1=int(input("ingrese temperatura del agua:"))
+
+
+if num1 < 0:
+        print("El estado de agua es solido",num1)
+
+elif num1 <= 100:
+        print("El estado de agua es liquido ",num1)
+
+else:
+    print("El estado de agua es gaseoso",num1)
+```
+
+```python
+año=int(input("ingrese año:"))
+
+if año % 4 == 0: 
+        if año % 400 == 0 :
+             print("El año es bisiesto:",año)
+
+else:
+    print("El año no es bisiesto:",año)
+```
+
+## ciclo while 
+```python
+import random
+
+op = 1
+valor = 0
+victorias = derrotas = empates = 0; 
+
+while op != 0:
+    print('<1> Jugar')
+    print('<2> Resultados')
+    print('<0> Salir')
+
+    op = int(input('Ingrese opcion: '))
+
+    if op == 1:
+
+        while valor<1 or valor>3:
+            valor = int(input('Ingrese valor: 1. piedra, 2. papel, 3. tijera: '))
+        
+        num = random.randint(1, 3)
+
+        if valor == num:
+            print('Empate: ', valor, ' vs ', num)
+            empates += 1
+        elif valor == 1:
+            if num == 2:
+                print('Pierdo: ', valor, ' vs ', num)
+                derrotas += 1
+            elif num == 3:
+                print('Gano: ', valor, ' vs ', num)
+                victorias += 1
+        elif valor == 2:
+            if num == 1:
+                print('Gano: ', valor, ' vs ', num)
+                victorias += 1
+            elif num == 3:
+                print('Pierdo: ', valor, ' vs ', num)
+                derrotas += 1
+        elif valor == 3:
+            if num == 1:
+                print('Pierdo: ', valor, ' vs ', num)
+                derrotas += 1
+            elif num == 2:
+                print('Gano: ', valor, ' vs ', num)
+                victorias += 1
+    elif op == 2:
+        print('Empates:', empates)
+        print('Victorias:', victorias)
+        print('Derrotas:', derrotas)
+        
+
+
+        # while valor != 1 and valor!=2 and valor!=3:
+        #     valor = int(input('Ingrese valor: 1. piedra, 2. papel, 3. tijera: '))
+        
+        # while not(valor == 1 or valor == 2 or valor == 3):
+        #     valor = int(input('Ingrese valor: 1. piedra, 2. papel, 3. tijera: '))
+        
+        # while not(valor>=1 and valor<=3):
+        #     valor = int(input('Ingrese valor: 1. piedra, 2. papel, 3. tijera: '))
+```
+
+```python
+
+op = 1
+valor = 0
+victorias = derrotas = empates = 0;
+
+# 1 si gana el jugador
+# 2 si gana la maquina
+# 0 empate
+def verificar_resultado(jugador, maquina):
+    if jugador == maquina:
+        return 0
+    elif jugador == 1:
+        if maquina == 2:
+            return 2
+        elif maquina == 3:
+            return 1
+    elif jugador == 2:
+        if maquina == 1:
+            return 1
+        elif maquina == 3:
+            return 2
+    elif jugador == 3:
+        if maquina == 1:
+            return 2
+        elif maquina == 2:
+            return 1
+
+# 1. piedra, 2. papel, 3. tijera
+# print(verificar_resultado(3,3))
+# print(verificar_resultado(1,2))
+# print(verificar_resultado(1,3))
+
+while op != 0:
+    print('<1> Jugar')
+    print('<2> Resultados')
+    print('<0> Salir')
+
+    op = int(input('Ingrese opcion: '))
+
+    if op == 1:
+
+        while valor<1 or valor>3:
+            valor = int(input('Ingrese valor: 1. piedra, 2. papel, 3. tijera: '))
+        
+        num = random.randint(1, 3)
+
+        resultado = verificar_resultado(valor, num)
+        if resultado == 0:
+            empates += 1
+        elif resultado == 1:
+            victorias += 1
+        else:
+            derrotas += 1
+
+
+        
+    elif op == 2:
+        print('Empates:', empates)
+        print('Victorias:', victorias)
+        print('Derrotas:', derrotas)
+
+    valor = 0
+        
+
+
+        # while valor != 1 and valor!=2 and valor!=3:
+        #     valor = int(input('Ingrese valor: 1. piedra, 2. papel, 3. tijera: '))
+        
+        # while not(valor == 1 or valor == 2 or valor == 3):
+        #     valor = int(input('Ingrese valor: 1. piedra, 2. papel, 3. tijera: '))
+        
+        # while not(valor>=1 and valor<=3):
+        #     valor = int(input('Ingrese valor: 1. piedra, 2. papel, 3. tijera: '))
+```
+
+```python
+print ("Introduzca la nota de un estudiante (-1 para salir): ")
+grado = int(input())
+while grado != -1:
+    total = total + grado
+    contar = contar + 1
+    print ("Introduzca la nota de un estudiante (-1 para salir): ")
+    grado = int(input())
+promedio = total / contar
+print ("Promedio de notas del grado escolar es: " + str(promedio))
+```
