@@ -8,9 +8,9 @@ En Python las variables son "etiquetas" que permiten hacer referencia a los dato
 ## Nombrando una variable
 le damos un nombre a una variable 
 
-¨¨¨python
+'''python
 suma = s
-¨¨¨
+'''
 
 
 
